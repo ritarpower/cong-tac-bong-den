@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cong tac bong den</title>
+</head>
+<body>
+<script>
+    class ElectricLamp{
+        constructor() {
+            this.status = false;
+        }
+
+        turnOff(){
+            this.status = false;
+        }
+
+        turnOn(){
+            this.status = true;
+        }
+    }
+
+    class SwitchButton{
+        constructor() {
+            this.status = false;
+            this.lamp = null;
+        }
+
+        connectToLamp(lamp){
+            this.lamp = lamp;
+        }
+
+        switchOff(){
+            this.status = false;
+            this.lamp.turnOff();
+        }
+
+        switchOn(){
+            this.status = true;
+            this.lamp.turnOn();
+        }
+
+
+    }
+    let congTac = new SwitchButton();
+    let den = new ElectricLamp();
+
+    congTac.connectToLamp(den);
+    for (let i = 0; i < 10; i++) {
+        if(congTac.status === false){
+            document.write("Cong tac tat, den tat");
+            congTac.switchOn();
+        } else{
+            document.write("Cong tac bat, den bat");
+            congTac.switchOff();
+        }
+    }
+
+
+</script>
+</body>
+</html>
